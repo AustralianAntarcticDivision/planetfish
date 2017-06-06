@@ -1,0 +1,131 @@
+CHANGES in planetfish VERSION 0.5.3
+
+o bug fix: method 'defined' in 'stock_recruit' now takes a series of recruitment
+values (previously only accepted a single value)
+
+o bug fix: fill now implemented in 'create_array', previously arrays filled with
+zeroes
+
+o Function 'initial_ages' replaces 'init_age_comp' in generating the initial age
+structure of the population and provides methods for user defined age structures
+
+o estimate_selectivity now controls which selectivities that are estimated by the
+CASAL assessment.
+
+CHANGES in planetfish VERSION 0.5.1
+
+o 'move_fish_dframe' now permits separate movement for tagged and untagged
+population by specifing 'om$move_tag_rules'
+
+CHANGES in planetfish VERSION 0.5
+
+o individual ogive functions have been replaced by 'ogive' which has a type
+argument. These functions will be removed in version 0.7
+
+o move rules now implemented as dataframes, old parameter specifications will no
+longer work.
+
+o 'create_move_rule' is now redundant and will be removed in version 0.6
+
+o new function 'expand_move_matrix' for array based movement
+
+o new function 'ogive' combines all the ogive functions
+
+o new argument for 'move_init' to specify the number of years to move the initial
+population prior to the first model timestep. The previously hardcoded number of
+100 is the default.
+
+o changing object names from '.' to '_'
+
+o new names in movement matrix "Sex", "Year" and "Season (default = "all"). "From"
+and "To" changed to "Origin" and "Destination"
+
+o Implementation of new movement method. Movement array added to 'pop' object in
+'setup_om_objects'.
+
+o argument 'para' removed from 'get_om_data'
+
+o argument 'res' removed from 'setup_om_objects'
+
+CHANGES in planetfish VERSION 0.4.0
+
+o Minor release after correction of bugs in 0.3.z series
+
+CHANGES in planetfish VERSION 0.3.5
+
+o bug fix calculation of mod$ssb0 is more robust, previous method was specified
+with an integer and comments describing options 1 and 3 were transposed. New
+implementation has options "casal", "stoch" and "init_age", see ?get_initial_pop
+for details
+
+CHANGES in planetfish VERSION 0.3.4
+
+o new function 'rel_err' calculates relative error from OM/AM scenario runs
+
+CHANGES in planetfish VERSION 0.3.3
+
+o bug fix 'sample.length' was overestimating by one length bin resulting in
+biomass being over-estimated in CASAL assessment
+
+CHANGES in planetfish VERSION 0.3.2
+
+o bug fix fleet[[ff]]$landings.n array not indexed by sex in 'run_annual_om'
+
+o bug fix SSB by sex not allocating correctly to mod$ssb in 'run_annual_om'
+
+o 'run_complete_casal_assessment' now checks mpd.dat and output.log exist before
+trying to delete, previously a warning was generated when these files did not exist
+
+
+CHANGES in planetfish VERSION 0.3.1
+
+o numerous bug fixes to new functions in version 0.3.0 (don't use version 0.3.0)
+
+o intern now an argument of 'run_casal_pointest' and functions that call it. Setting
+intern=FALSE sends CASAL output to R console, can be useful for debugging
+
+o bug fix, length data now used in CASAL assessment (catchlen_N), was using age
+data (catchage_N)
+
+o Sample sizes for the catch and length data in the CASAL assessment moved to
+the Fish object in 'get_casal_para'
+
+CHANGES in planetfish VERSION 0.3.0
+
+o minor doc updates passes CHECK
+
+o new functions 'om_control', 'om_study', 'om_biol', 'om_movement',
+'om_fisheries', 'om_sampling', 'am_study', 'am_fisheries', 'am_seqence',
+'am_movement', 'am_recruit', 'am_biol', 'am_sampling', 'am_tags', 'am_est',
+'am_out_print', 'am_out_quants' and 'am_natage' provide an alternative to
+'get_om_data', 'get_casal_para' and 'get_casal_data'. These functions specify
+parameters within function arguments.
+
+o removal of redundant om$move_rules from get_casal_para
+
+CHANGES in planetfish VERSION 0.2.0
+
+o Tagging data implemented as dataframe instead of multiple arrays
+
+CHANGES in planetfish VERSION 0.1.3
+
+o additional removing of redundant comments
+
+CHANGES in planetfish VERSION 0.1.2
+
+o removing batch file implementation of CASAL assessment
+
+o some minor bug fixes (see git repo is interested)
+
+o removing redundant comments, see original planetfish if interested
+in these comments
+
+CHANGES in planetfish VERSION 0.1.1
+
+o Functions updated and documented
+
+o Unused functions removed
+
+CHANGES in planetfish VERSION 0.0.1
+
+o An empty package to convert the planetfish scripts to a package

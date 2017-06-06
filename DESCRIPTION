@@ -1,0 +1,22 @@
+Package: planetfish
+Type: Package
+Title: Fisheries operating model
+Description: Fisheries simulation model linked to the assessment model CASAL.
+Version: 0.5.3
+Date: 2017-06-06
+Author: Philippe Ziegler and Paul Burch
+Maintainer: Paul Burch <Paul.Burch@aad.gov.au>
+Depends:
+    R (>= 3.0.1),
+Suggests:
+    casal,
+    fishnostics,
+    knitr,
+    mvtnorm,
+    testthat,
+    reshape,
+    rmarkdown
+VignetteBuilder: knitr
+LazyData: true
+License: GPL-3
+RoxygenNote: 6.0.1
