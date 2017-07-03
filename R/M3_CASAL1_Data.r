@@ -35,8 +35,9 @@ get_casal_para <- function(para) {
 											# matrix(c("Trawl","LL1","LL2",
 											# 		   "Trawl","LL", "LL"), ncol=3, byrow=TRUE, dimnames=list(c("OM","Ass"),c()))
 	# Check
-	###*** replace with warning()
-	if(sum(!om$fishery %in% datass$match_fishery["OM",])>0) print("Mismatch in OM fisheries (datass$match_fishery)")	# Warning
+	# provide user a warning if the Fisheries in the OM don't match the Assessment
+	if(sum(!om$fishery %in% datass$match_fishery["OM",])>0)
+	  warning("Mismatch in OM fisheries (datass$match_fishery)")
 	# Regions: relationship between regions in OM and Assessment (i.e. allow for region mismatch between OM and assessment):
 	datass$match_region <- matrix(c(  1,   2,   3, "R1","R2","R2"), ncol=3,
 	                              byrow=TRUE, dimnames=list(c("OM","Ass"),c()))
@@ -45,9 +46,9 @@ get_casal_para <- function(para) {
 											# matrix(c(1, 2, 3,
 											#  		   1, 1, 2), ncol=3, byrow=TRUE, dimnames=list(c("OM","Ass"),c()))
 	datass$regions <- sort(unique(datass$match_region["Ass",]))
-	# Check
-	###*** replace with warning()
-	if(sum(!om$regions %in% datass$match_region["OM",])>0) print("Mismatch in OM regions (datass$match_region)")	# Warning
+	# Provide user a warning if the regions in the OM don't match the Assessment
+	if(sum(!om$regions %in% datass$match_region["OM",])>0)
+	  warning("Mismatch in OM regions (datass$match_region)")
 	datass$n_stocks <- 1			# Do not change
 	# datass$stock_names			<- "Stock1"
 	datass$y_proj <- 35			# Years for projection
@@ -448,10 +449,9 @@ get_casal_data <- function(datass, Yr_current, om, sampling, obs, tag, mod) {
 			for (i in 2:length(omfish))
 				datass$catch[[fish]] <- datass$catch[[fish]] + apply(mod$obs_catch[[omfish[i]]][,yrs,,seas,omreg,drop=FALSE],c(1,2,3,4),sum)
 	}
-	## Checks:
-	# All fisheries are represented
+	# Provide user a warning that all Metiers in the OM are not included in the Assessment
 	if(length(om$fishery) > length(datass$list_metier))
-		print(paste("Metiers in OM that are not included in Assessment: ",om$fishery[! om$fishery %in% datass$list_metier],sep=""))
+		warning(paste("Metiers in OM that are not included in Assessment: ",om$fishery[! om$fishery %in% datass$list_metier],sep=""))
 	# print("")
 	# print("Fisheries in OM and Assessment:")
 	# print(datass$Fish)
