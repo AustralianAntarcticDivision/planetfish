@@ -1,3 +1,9 @@
+CHANGES in planetfish VERSION 0.5.5
+
+o disable warning on 'init_age_comp'
+
+o replacing print statements in 'M3_CASAL1_Data.r' with warning()
+
 CHANGES in planetfish VERSION 0.5.3
 
 o bug fix: method 'defined' in 'stock_recruit' now takes a series of recruitment
