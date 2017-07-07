@@ -13,7 +13,7 @@
 #' @param M vector of natural mortality by age class
 #' @export
 init_age_comp <- function(mu, sigma, age, M) {
-  warning("The function 'init_age_comp' has been replaced by 'initial_ages' and
+  #warning("The function 'init_age_comp' has been replaced by 'initial_ages' and
     will be removed in version 0.7")
   n_ages <- age[2] - age[1] + 1
   # Vector with initital Recs (AveRec*sigmaRec)
