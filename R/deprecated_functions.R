@@ -14,7 +14,7 @@
 #' @export
 init_age_comp <- function(mu, sigma, age, M) {
   #warning("The function 'init_age_comp' has been replaced by 'initial_ages' and
-    will be removed in version 0.7")
+  #  will be removed in version 0.7")
   n_ages <- age[2] - age[1] + 1
   # Vector with initital Recs (AveRec*sigmaRec)
   init1 <- mu*exp(rnorm(n_ages,sd=(sigma)))
